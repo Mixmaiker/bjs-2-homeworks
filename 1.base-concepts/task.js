@@ -42,6 +42,7 @@ if (isNaN(percent)) {
 
   const P = percent/(12*100);
   let currentDate = new Date();
+  let period = monthDiff(currentDate, date) + 1;
   const S = amount - contribution;
 	let monthlyPayment = S * ((P) + (P) / (((1 + (P))**period) - 1));
   let totalAmount = parseFloat((period * monthlyPayment).toFixed(2));
