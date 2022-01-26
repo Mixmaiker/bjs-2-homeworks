@@ -3,7 +3,6 @@
 function solveEquation(a, b, c) {
   let arr = [];
   let d = b**2-4*a*c;
-
   if(d === 0) {
     let x = -b/(2*a);
     arr.push(x);
@@ -15,38 +14,25 @@ function solveEquation(a, b, c) {
   return arr;
 }
 
-// function calculateTotalMortgage(percent, contribution, c, period) {
-//   const P = percent/(12*100);
-//   const S = c - contribution;
-// 	let monthlyPayment = S * ((P) + (P) / (((1 + (P))**period) - 1));
-//   let totalAmount = parseFloat((period * monthlyPayment).toFixed(2));
-//   return totalAmount;
-// }
 
-// console.log(solveEquation(1, -2 , -7));
-
-// console.log(calculateTotalMortgage(10, 0, 20000, 24));
-
-
-function calculateTotalMortgage(percent, contribution, amount, period) {
-
-if (isNaN(percent)) {
-  totalAmount = “Параметр "Процентная ставка" содержит неправильное значение '${percent}'”
-} else if (I=isNaN(contribution)) {
-  totalAmount = “Параметр "Начальный взнос" содержит неправильное значение '${сontribution}'”
-} else if (I=isNaN(amount)) {
-  totalAmount = “Параметр "Общая стоимость" содержит неправильное значение '${amount}'”
-} else {
-
+function calculateTotalMortgage(percent, contribution, amount, date) {
+  if (isNaN(percent)) {
+		return `Параметр "Процентная ставка" содержит неправильное значение "${percent}"`
+	} else if (isNaN(contribution)) {
+		return `Параметр "Начальный взнос" содержит неправильное значение "${contribution}"`
+	} else if (isNaN(amount)) {
+		return `Параметр "Общая стоимость" содержит неправильное значение "${amount}"`
+	}
+  
   const P = percent/(12*100);
   let currentDate = new Date();
   let period = monthDiff(currentDate, date) + 1;
   const S = amount - contribution;
 	let monthlyPayment = S * ((P) + (P) / (((1 + (P))**period) - 1));
   let totalAmount = parseFloat((period * monthlyPayment).toFixed(2));
-}
   return totalAmount;
 }
+
 
 function monthDiff(d1, d2) {
   let months;
@@ -56,7 +42,7 @@ function monthDiff(d1, d2) {
   return months <= 0 ? 0 : months;
 }
 
+const myDate = new Date(2021, 2, 1);
 
 console.log(solveEquation(1, -2 , -7));
-
-console.log(calculateTotalMortgage(10, 0, 20000, 24));
+console.log(calculateTotalMortgage(10, 0, 20000, myDate));
