@@ -34,11 +34,9 @@ if (isNaN(percent)) {
   totalAmount = “Параметр "Процентная ставка" содержит неправильное значение '${percent}'”
 } else if (I=isNaN(contribution)) {
   totalAmount = “Параметр "Начальный взнос" содержит неправильное значение '${сontribution}'”
-} else if (I=isNaN(сontribution)) {
-  totalAmount = “Параметр "Общая стоимость" содержит неправильное значение '${amount}'”
 } else if (I=isNaN(amount)) {
+  totalAmount = “Параметр "Общая стоимость" содержит неправильное значение '${amount}'”
 } else {
-
 
   const P = percent/(12*100);
   let currentDate = new Date();
@@ -46,6 +44,7 @@ if (isNaN(percent)) {
   const S = amount - contribution;
 	let monthlyPayment = S * ((P) + (P) / (((1 + (P))**period) - 1));
   let totalAmount = parseFloat((period * monthlyPayment).toFixed(2));
+}
   return totalAmount;
 }
 
